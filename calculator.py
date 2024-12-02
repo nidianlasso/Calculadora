@@ -49,6 +49,13 @@ def limpiar():
     state_calculator= False
 
 
+def calcular():
+    global expression, state_calculator
+    resultado = eval(expression)
+    visor_texto.set(resultado)
+    state_calculator= True
+    print(f'El resultado es {resultado}')
+
 for i in range (5):
     window.grid_rowconfigure(i, weight=1)
 for i in range (4):
@@ -99,7 +106,7 @@ btn_equal = tk.Button(window, text='=',
                        bd=10,
                        borderwidth=4,
                        justify='center',
-                       command=comando).grid(row=5, column=0, columnspan=4)
+                       command=calcular).grid(row=5, column=0, columnspan=4)
 
 
 
